@@ -1,0 +1,63 @@
+枫桥变2#主变10kV开关A相电流越上限 值:221.153                                                                                    
+枫桥变2#主变10kV开关A相电流越限恢复 值:207.230                                                                                  
+大唐变1#主变110kV后备保护通信中断 复位                                                                                          
+店口变2#变压器:数据非法临时闭锁                                                                                                 
+VQC算法周期计算!                                                                                                                
+城南变10kVII段母线CA线电压越限恢复 值:10.605                                                                                    
+灵敏度和动态分区模块异常                                                                                                        
+VQC算法周期计算!                                                                                                                
+灵敏度和动态分区模块异常                                                                                                        
+VQC算法周期计算!                                                                                                                
+VQC算法周期计算!                                                                                                                
+VQC算法周期计算!    
+
+
+
+
+--------------------- 
+作者：超人汪小建(seaboat) 
+来源：CSDN 
+原文：https://blog.csdn.net/wangyangzhizhou/article/details/72811519 
+版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
+
+1.样本清洗
+
+主要将重复的数据删除掉，将错误无效的数据纠正或删除，并检查数据的一致性等。
+
+ 定好类别集合
+按照样本集人工做好分类，比如分为以下几类：           
+
+SVM文本分类
+
+http://lib.csdn.net/article/machinelearning/35755
+https://blog.csdn.net/qq_30189255/article/details/54571370        
+
+https://blog.csdn.net/haizhiguang/article/details/51451559
+
+http://lib.csdn.net/article/machinelearning/35755
+
+SVM文本分类         
+
+TD-IDF
+https://blog.csdn.net/alicelmx/article/details/80428453 
+
+词频-逆向文件频率TD-IDF(Term Frequency-inverse Document Frequency)是一种用于信息检索
+和数据挖掘的加权技术，也就是常说的文本的打标。
+文本打标就是找出最能代表这个文本意义的一些词语，最能代表包含两方面：
+一方面就是打标词语要出现得足够多，也就是通过对文章进行词频统计，
+在通常请情况下出现多的词语才是最能代表文章意义的。 另一方面，把多篇文章放在一起来比较，类似于"的"、"是"这样的常用助词可能在每篇文章出现的频率都很高，虽然这些词满足了出现频率高的要求，
+但是并不能作为每篇文章打标签，因为这些词语不具备个性。所谓个性就是就是多篇文章放在一起，某个词在A中出现较多，而B出现不多。以上两个方面就是TF-IDF的算法精髓。
+
+TF表示谋篇文章中词汇出现的频率，DF表示出现词汇B的文章占到所有文章的比例。
+TF-DF进行reverse也就是除法，才能正确表示某个词语在对应文章中的TF-DF值    
+https://blog.csdn.net/alicelmx/article/details/80428453     
+
+并且使用了jieba分词展示了如何对文本进行分词。中文分词是一个非常复杂的领域，需要涉及种类繁多的算法理论，     
+
+支持三种分词模式：
+
+def main():
+    segs = jieba.cut("枫桥变2#主变10kV开关A相电流越上限 值:221.153")
+    print ("/".join(segs))                                      
